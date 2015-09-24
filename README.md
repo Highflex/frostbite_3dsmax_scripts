@@ -3,6 +3,10 @@ Frostbite Engine 3ds Max Scripts
 
 Collection of various scripts to import Frostbite Assets into 3ds Max
 
+Games supported
+---------------------
+- Battlefield 4
+
 Changes
 ---------------------
 - Support for Vertex Normals added
