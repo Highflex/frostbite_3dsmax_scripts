@@ -16,6 +16,9 @@ Usage
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/VdgwQpWCk84/0.jpg)]
 (http://www.youtube.com/watch?v=VdgwQpWCk84 "Video Guide")
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/GyBvFljTNwE/0.jpg)]
+(http://www.youtube.com/watch?v=GyBvFljTNwE "Video Guide 2")
+
 Compatibility
 ---------------------
 - Tested with 3ds Max 2012 x64
