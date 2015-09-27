@@ -10,6 +10,7 @@ Games supported
 Changes
 ---------------------
 - Support for Vertex Normals added
+- Fixed Skeleton importer ( Reads bone count now too )
 
 Usage
 ---------------------
@@ -21,8 +22,8 @@ Usage
 
 Compatibility
 ---------------------
-- Tested with 3ds Max 2012 x64
-- Supports Max 11-16(Untested)
+- Tested with 3ds Max 2016 x64
+- Max 11-15(Untested but should work)
 
 Credits
 ---------------------
