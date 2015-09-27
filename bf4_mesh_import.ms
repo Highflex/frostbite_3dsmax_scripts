@@ -2,6 +2,7 @@
 -- Edits by Highflex 24.09.15
 --	-> Support for Vertex Normals
 --	-> Cleaned up Structure
+--	-> Tested with MAX 16
 	
 clearlistener();
 		
