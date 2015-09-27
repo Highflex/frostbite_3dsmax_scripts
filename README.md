@@ -22,8 +22,7 @@ Usage
 
 Compatibility
 ---------------------
-- Tested with 3ds Max 2016 x64
-- Max 11-15(Untested but should work)
+- 3ds Max 2015/2016
 
 Credits
 ---------------------
