@@ -9,6 +9,7 @@ Games supported
 
 Changes
 ---------------------
+- Added support for vehicle parts positions
 - Support for Vertex Normals added
 - Fixed Skeleton importer ( Reads bone count now too )
 
@@ -22,9 +23,9 @@ Usage
 
 Compatibility
 ---------------------
-- 3ds Max 2015/2016
+- 3ds Max 2015/2016/2017(x64)
 
 Credits
 ---------------------
 - Dainius G ( Original Author )
-- Me ( Some minor updates )
+- Highflex  ( Some minor updates )
