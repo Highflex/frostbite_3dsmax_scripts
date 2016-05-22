@@ -1,0 +1,66 @@
+fn Vec3=(
+			--__m128 = readbytes mfile 0x10 --simdvalue; // Offset = this + 0x0 Length = 0x10
+	
+			x= readfloat mfile		as float		--// Offset = this + 0x0 Length = 0x4
+			y= readfloat mfile		as float		--// Offset = this + 0x4 Length = 0x4
+			z= readfloat mfile		as float		--// Offset = this + 0x8 Length = 0x4
+			pad= readfloat mfile	as float		--// Offset = this + 0xC Length = 0x4
+			--_float=readbytes mfile 0x10	--// Offset = this + 0x0 Length = 0x10
+			return [x,-z,y,pad]
+		)
+
+
+
+
+fn LinearTransform =(						
+						left	=	Vec3()  --// Offset = this + 0x0 Length = 0x10
+						up		=	Vec3()  --// Offset = this + 0x10 Length = 0x10
+						forward	=	Vec3()  --// Offset = this + 0x20 Length = 0x10
+						trans	=	Vec3() 	--// Offset = this + 0x30 Length = 0x10
+					return #(left,up,forward,trans)
+					)	
+	fn readHalfFloat fstream = (
+	    hf=readshort fstream #unsigned
+	    sign = bit.get hf 16
+	    exponent = (bit.shift (bit.and hf (bit.hexasint "7C00")) -10) as integer - 16
+	    fraction = bit.and hf (bit.hexasint "03FF")
+	    if sign==true then sign = 1 else sign = 0
+	    exponentF = exponent + 127
+	    outputAsFloat = bit.or (bit.or (bit.shift fraction 13) \
+	    (bit.shift exponentF 23)) (bit.shift sign 31)
+	    return bit.intasfloat outputasfloat*2
+	    )
+	--Vert selection function	
+	fn findItemIndexes arr = (
+			local usedValues = #()
+			local indexes = #()
+			for i = 1 to arr.count do (
+				local j = findItem usedValues arr[i]
+				if j == 0 then (
+					append usedValues arr[i]
+					append indexes #{i}
+				) else
+					indexes[j][i] = on
+			)
+			indexes
+		)
+		--Detach to object using vert_array selection and assingind new object name via "By Reference Parameter Passing"
+	fn detachObj obj vertArr outName  = (
+	    -- cache modifier to variable
+	    if obj.modifiers[#Edit_Poly] != undefined then (
+	        epMod = obj.modifiers[#Edit_Poly]
+	    ) else (
+	        epMod = edit_poly()
+	        addmodifier obj epMod		
+	    )
+	    -- set modifier active in modpanel
+	    modpanel.setCurrentObject epMod
+	    -- set SO Level
+	    subobjectLevel = 1
+	    -- set Vertex Selection using supplied BitArray
+	    epMod.Select #Vertex &vertArr
+	    -- detach the object and setname using by-reference variable
+	    epMod.DetachToObject &outname
+	    -- delete modifier
+	    deletemodifier obj epMod
+	)						
