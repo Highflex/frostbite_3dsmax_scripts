@@ -9,7 +9,7 @@ Games supported
 
 Changes
 ---------------------
-- Added support for vehicle parts positions
+- Added support for vehicle parts positions (20/05/2016)
 - Support for Vertex Normals added
 - Fixed Skeleton importer ( Reads bone count now too )
 
